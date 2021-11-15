@@ -471,10 +471,10 @@ RectTransform:
   m_Father: {fileID: 286086877}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.75, y: -890.00024}
-  m_SizeDelta: {x: -979.50006, y: -1820}
+  m_AnchorMin: {x: 0.455, y: 0.010479167}
+  m_AnchorMax: {x: 0.54714817, y: 0.063}
+  m_AnchoredPosition: {x: 0.25, y: -0.5}
+  m_SizeDelta: {x: 1, y: -1}
   m_Pivot: {x: 0.49999997, y: 0.5000001}
 --- !u!114 &666135364
 MonoBehaviour:
@@ -621,10 +621,10 @@ RectTransform:
   m_Father: {fileID: 286086877}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -424.5, y: -890}
-  m_SizeDelta: {x: -979, y: -1820}
+  m_AnchorMin: {x: 0.060000002, y: 0.010479167}
+  m_AnchorMax: {x: 0.15374072, y: 0.063}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985957604
 MonoBehaviour:
@@ -696,10 +696,10 @@ RectTransform:
   m_Father: {fileID: 286086877}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -429.99988, y: 858.00006}
-  m_SizeDelta: {x: -980, y: -1819.9998}
+  m_AnchorMin: {x: 0.056, y: 0.9215209}
+  m_AnchorMax: {x: 0.14818516, y: 0.97300005}
+  m_AnchoredPosition: {x: 0, y: 0.499817}
+  m_SizeDelta: {x: 0, y: 1.0002441}
   m_Pivot: {x: 0.49999988, y: 0.49999988}
 --- !u!114 &1010712524
 MonoBehaviour:
@@ -847,10 +847,10 @@ RectTransform:
   m_Father: {fileID: 286086877}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 427, y: -890}
-  m_SizeDelta: {x: -980, y: -1820}
+  m_AnchorMin: {x: 0.8494072, y: 0.010479167}
+  m_AnchorMax: {x: 0.94100004, y: 0.063}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153808697
 MonoBehaviour:
