@@ -21,9 +21,17 @@ public class DialogueSystem : MonoBehaviour
         
     }
 
-    public void Falar(string Fala, string Falante) {
+    public void Falar(string Fala, string Falante = "") {
         ParaDeFalar();
-        Falando = ComecaCoroutine(FalandoNumerador(Fala, Falante));
+        Falando = ComecaCoroutine(FalandoNumerador(Fala, false,Falante));
+    }
+
+    public void AdicionaFalar(string Fala, string Falante = "") {
+        ParaDeFalar();
+
+        TextoFalas.text = FalaAlvo;
+
+        Falando = ComecaCoroutine(FalandoNumerador(Fala, true, Falante));
     }
 
     public void ParaDeFalar() {
@@ -36,15 +44,23 @@ public class DialogueSystem : MonoBehaviour
     public bool EstaFalando {get{return Falando != null;}}
     [HideInInspector] public bool EstaEsperandoUsuarioClicar = false;
 
+    public string FalaAlvo = "";
     Coroutine Falando = null;
-    IEnumerator FalandoNumerador(string FalaAlvo, string Falante) {
+    IEnumerator FalandoNumerador(string FalaAlvo, bool Additive, string Falante = "") {
         PainelFalas.SetActive(true);
-        TextoFalas.text = "";
-        TextoNome.text = Falante; //gambiarra
+        TextoFalas.text = Fala;
+
+        if (!Additive)
+            TextoFalas.text = "";
+        else
+            FalaAlvo = TextoFalas.text + FalaAlvo;
+
+        TextoNome.text = DeterminaFalante(Falante); //gambiarra
+
         EstaEsperandoUsuarioClicar = false;
 
         while (TextoFalas.text != FalaAlvo) {
-            TextoFalas.text += FalaAlvo[TextoFalas.text.Lengh-1];
+            TextoFalas.text += FalaAlvo[TextoFalas.text.Length];
              yield return new EspereFimFrame();
         }
 
@@ -53,6 +69,14 @@ public class DialogueSystem : MonoBehaviour
             yield return new EspereFimFrame();
 
         ParaDeFalar();
+    }
+
+    string DeterminaFalante(string s) {
+        string RetVal = TextoNome.text;
+        if (s != TextoNome.text && s != "")
+            RetVal = (s.ToLower().Contains("Narrador")) ? "" : s;
+
+        return RetVal;
     }
 
     [System.Serializable]
