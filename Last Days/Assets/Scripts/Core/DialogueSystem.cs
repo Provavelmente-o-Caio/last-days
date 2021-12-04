@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-
     public static DialogueSystem instance;
 
-    public ELEMENTS elements;
-    
+    public ELEMENTS elements;    
 
-    void Awake() {
+    void Awake()
+    {
         instance = this;
     }
 
@@ -21,22 +20,27 @@ public class DialogueSystem : MonoBehaviour
         
     }
 
-    public void Falar(string Fala, string Falante = "") {
+    public void Falar(string Fala, string Falante = "")
+    {
         ParaDeFalar();
-        Falando = ComecaCoroutine(FalandoNumerador(Fala, false,Falante));
+
+        Falando = StartCoroutine(FalandoNumerador(Fala, false,Falante));
     }
 
-    public void AdicionaFalar(string Fala, string Falante = "") {
+    public void AdicionaFalar(string Fala, string Falante = "")
+    {
         ParaDeFalar();
 
         TextoFalas.text = FalaAlvo;
 
-        Falando = ComecaCoroutine(FalandoNumerador(Fala, true, Falante));
+        Falando = StartCoroutine(FalandoNumerador(Fala, true, Falante));
     }
 
-    public void ParaDeFalar() {
-        if (EstaFalando) {
-            ParaCoroutine(Falando);
+    public void ParaDeFalar()
+    {
+        if (EstaFalando)
+        {
+            StopCoroutine(Falando);
         }
         Falando = null;
     }
@@ -46,9 +50,10 @@ public class DialogueSystem : MonoBehaviour
 
     public string FalaAlvo = "";
     Coroutine Falando = null;
-    IEnumerator FalandoNumerador(string FalaAlvo, bool Additive, string Falante = "") {
+    IEnumerator FalandoNumerador(string Fala, bool Additive, string Falante = "")
+    {
         PainelFalas.SetActive(true);
-        TextoFalas.text = Fala;
+        FalaAlvo = Fala;
 
         if (!Additive)
             TextoFalas.text = "";
@@ -59,19 +64,21 @@ public class DialogueSystem : MonoBehaviour
 
         EstaEsperandoUsuarioClicar = false;
 
-        while (TextoFalas.text != FalaAlvo) {
+        while (TextoFalas.text != FalaAlvo)
+        {
             TextoFalas.text += FalaAlvo[TextoFalas.text.Length];
-             yield return new EspereFimFrame();
+             yield return new WaitForEndOfFrame();
         }
 
         EstaEsperandoUsuarioClicar = true;
         while(EstaEsperandoUsuarioClicar)
-            yield return new EspereFimFrame();
+            yield return new WaitForEndOfFrame();
 
         ParaDeFalar();
     }
 
-    string DeterminaFalante(string s) {
+    string DeterminaFalante(string s)
+    {
         string RetVal = TextoNome.text;
         if (s != TextoNome.text && s != "")
             RetVal = (s.ToLower().Contains("Narrador")) ? "" : s;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teste : MonoBehaviour
+public class Testing : MonoBehaviour
 {
 
     DialogueSystem dialogo;
@@ -28,7 +28,7 @@ public class Teste : MonoBehaviour
         {
             if (!dialogo.EstaFalando || dialogo.EstaEsperandoUsuarioClicar)
             {
-                if (index >= s.Lengh)
+                if (index >= s.Length)
                 {
                     return;
                 }
@@ -43,7 +43,7 @@ public class Teste : MonoBehaviour
     {
         string[] parts = s.Split(':');
         string Fala = parts[0];
-        string Falante = (parts.Lengh >= 2) ? parts[1] : "";
+        string Falante = (parts.Length >= 2) ? parts[1] : "";
 
         dialogo.Falar(Fala, Falante);
     }
