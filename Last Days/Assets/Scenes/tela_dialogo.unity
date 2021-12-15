@@ -123,6 +123,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29648967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29648970}
+  - component: {fileID: 29648969}
+  - component: {fileID: 29648968}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &29648968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29648967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb6fa12f4ab53da4c9918ed0a93bc23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  s:
+  - "Vamos \xE9 sexta precisamos nos divertir!:Dandara"
+  - "Ningu\xE9m precisa saber que est\xE1 saindo sem permi\xE7\xE3o... s\xF3 eu e
+    voc\xEA"
+--- !u!114 &29648969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29648967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d456526b3cfaf2479f3f14d89236fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+    PainelFalas: {fileID: 529432885}
+    TextoNome: {fileID: 2097793769}
+    TextoFalas: {fileID: 1836232376}
+  EstaEsperandoUsuarioClicar: 0
+  FalaAlvo: 
+--- !u!4 &29648970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29648967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 869.8815, y: 589.7262, z: -6601.1367}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203494750
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +713,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 530ce26ec050264409b81c9174831a98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7db38da392156e74581b09a820427210, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
