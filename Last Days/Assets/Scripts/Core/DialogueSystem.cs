@@ -86,6 +86,12 @@ public class DialogueSystem : MonoBehaviour
         return RetVal;
     }
 
+    public void Fechar()
+    {
+        ParaDeFalar();
+        PainelFalas.SetActive(false);
+    }
+
     [System.Serializable]
     public class ELEMENTS
     {
