@@ -36,22 +36,9 @@ public class Personagem
         //Já aviso que está meio gambiarra, não sei como fazer isso funcionar perfeitamente, estou seguindo um modelo diferente do tutorial
     public Sprite PegaSprite(string NomeSpriteCorpo, string NomeSpriteRosto)
     {
-        Sprite[] SpriteCorpo = Resources.LoadAll<Sprite> ("Images/personagens/" + NomePersonagem + "/Corpos/" + NomeSpriteCorpo);
-        return SpriteCorpo["NomeSpriteCorpo"];
-        Sprite[] SpriteRosto = Resources.LoadAll<Sprite> ("Images/personagens/" + NomePersonagem + "/Rostos/" + NomeSpriteRosto);
-        return SpriteRosto["NomeSpriteRosto"];
+        Sprite[] Sprite = Resources.LoadAll<Sprite> ("Images/personagens/" + NomePersonagem);
+        return Sprite[];
     }
-
-    public void DefineCorpo(Sprite SpriteCorpo)
-    {
-        renderizadores.RenderizaCorpo.SpriteCorpo = PegaSprite;
-    }
-
-    public void DefineRosto(Sprite SpriteRosto)
-    {
-        renderizadores.RenderizaCorpo.SpriteRosto = PegaSprite;
-    }
-
 
     //Carrega/Cria Personagem
     public Personagem (string _nome, bool AtivaAoIniciar = true)
