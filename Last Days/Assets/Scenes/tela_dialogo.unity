@@ -1254,6 +1254,8 @@ MonoBehaviour:
   - Tudo bem?
   - "Que \xF3timo"
   - Estou bem
+  IndexCorpo: 0
+  IndexRosto: 3
 --- !u!4 &1792010279
 Transform:
   m_ObjectHideFlags: 0
