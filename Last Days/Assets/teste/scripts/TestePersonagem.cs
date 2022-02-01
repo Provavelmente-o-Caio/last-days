@@ -15,6 +15,9 @@ public class TestePersonagem : MonoBehaviour
     public string[] Fala;
     int i = 0;
 
+    public string NomeSpriteCorpo = "abgail_completa";
+    public string NomeSpriteRosto = "abigailRaiva";
+
     // Update is called once per frame
     void Update()
     {
@@ -33,6 +36,16 @@ public class TestePersonagem : MonoBehaviour
                 }
 
                 i++;
+            }
+
+            if (Input.touchCount>1)
+            {
+                Touch Toque2 = Input.GetTouch(1);
+                if (Toque2.phase == TouchPhase.Ended)
+                {
+                    Abigail.DefineRosto (abigailFeliz);
+                }
+                
             }
         }
     }
