@@ -34,12 +34,30 @@ public class Personagem
 
     //Transição de sprites
         //Já aviso que está meio gambiarra, não sei como fazer isso funcionar perfeitamente, estou seguindo um modelo diferente do tutorial
-    public Sprite PegaSprite(string NomeSpriteCorpo, string NomeSpriteRosto)
+    public Sprite PegaSprite(int indexer = 0)
     {
+<<<<<<< Updated upstream
         Sprite[] Sprite = Resources.LoadAll<Sprite> ("Images/personagens/" + NomePersonagem);
         return Sprite[];
     }
 
+=======
+        Sprite[] Sprites = Resources.LoadAll<Sprite> ("Images/personagens/" + NomePersonagem );
+        return Sprites[index];
+        
+    }
+
+    public void DefineRosto(int index)
+    {
+        renderizadores.RenderizaRosto.sprite = PegaSprite (index); // renderizadores.RenderizaRosto.SpriteRosto = PegaSprite (index);
+    }
+
+    public void DefineRosto(Sprite sprite)
+    {
+        renderizadores.RenderizaRosto.sprite = sprite; // renderizadores.RenderizaRosto.SpriteRosto = PegaSprite;
+    }
+
+>>>>>>> Stashed changes
     //Carrega/Cria Personagem
     public Personagem (string _nome, bool AtivaAoIniciar = true)
     {
