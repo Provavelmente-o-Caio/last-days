@@ -60,6 +60,18 @@ public class Personagem
         renderizadores.RenderizaRosto.sprite = sprite;
     }
 
+    public void TransicionaCorpo(Sprite sprite, float velocidade, bool suave)
+    {
+
+    }
+
+    void ParaTransicaoCorpo()
+
+    bool CorpoEstaTransicionando {get {TransicaoCorpo != null;}}
+    Coroutine TransicaoCorpo = null;
+
+    public void
+
     //Carrega/Cria Personagem
     public Personagem (string _nome, bool AtivaAoIniciar = true)
     {
@@ -73,6 +85,8 @@ public class Personagem
 
         renderizadores.RenderizaCorpo = ob.transform.Find("LayerCorpo").GetComponent<Image> ();
         renderizadores.RenderizaRosto = ob.transform.Find("LayerRosto").GetComponent<Image> ();
+        renderizadores.RenderizaCorpoTodos.Add(renderizadores.RenderizaCorpo);
+        renderizadores.RenderizaRostoTodos.Add(renderizadores.RenderizaRosto);
 
         Dialogo = DialogueSystem.instance;
 
@@ -84,6 +98,9 @@ public class Personagem
     {
         public Image RenderizaCorpo;
         public Image RenderizaRosto;
+
+        public List<Image> RenderizaCorpoTodos = new List<Image>();
+        public List<Image> RenderizaRostoTodos = new List<Image>();
     }
 
     public Renderers renderizadores  = new Renderers();
