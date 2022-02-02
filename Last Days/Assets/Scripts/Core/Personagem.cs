@@ -60,17 +60,48 @@ public class Personagem
         renderizadores.RenderizaRosto.sprite = sprite;
     }
 
-    public void TransicionaCorpo(Sprite sprite, float velocidade, bool suave)
-    {
-
-    }
-
-    void ParaTransicaoCorpo()
-
     bool CorpoEstaTransicionando {get {TransicaoCorpo != null;}}
     Coroutine TransicaoCorpo = null;
 
-    public void
+    public void TransicionaCorpo(Sprite sprite, float velocidade, bool suave)
+    {
+        if (renderizadores.RenderizaCorpo.sprite == sprite)
+            return;
+     
+        ParaTransicaoCorpo();
+        TransicaoCorpo = ManagerPersonagem.instance.StartCoroutine(CorpoTransicionando(sprite, velocidade, suave));
+    }
+
+    void ParaTransicaoCorpo()
+    {
+        if(CorpoEstaTransicionando)
+            ManagerPersonagem.instance.StopCoroutine(TransicaoCorpo);
+        CorpoEstaTransicionando = null;
+    }
+
+    public IEnumerator CorpoTransicionando  (Sprite sprite, float velocidade, bool suave)
+    {
+        for (int i = 0; i < renderizadores.RenderizaCorpoTodos.count; i++)
+        {
+            Image imagem = renderizadores.RenderizaCorpoTodos[i];
+            if (imagem.sprite == sprite)
+            {
+                renderizadores.RenderizaCorpo = imagem;
+                break;
+            }
+        }
+        if (renderizadores.RenderizaCorpo.sprite != sprite)
+        {
+            Image imagem = gameObject.Instantiate(renderizadores.RenderizaCorpo.gameObject, renderizadores.RenderizaCorpo.transform.parent).GetComponent<Image>();
+            renderizadores.RenderizaCorpoTodos.Add (imagem);
+            renderizadores.RenderizaCorpo = imagem;
+        }
+
+        while (FuncoesGlobais.TransicaoImagens(ref renderizadores.RenderizaCorpo, ref renderizadores.RenderizaCorpoTodos, velocidade, suave))
+            yield return new WaitForEndOfFrame();
+
+            ParaTransicaoCorpo();
+    }
 
     //Carrega/Cria Personagem
     public Personagem (string _nome, bool AtivaAoIniciar = true)
