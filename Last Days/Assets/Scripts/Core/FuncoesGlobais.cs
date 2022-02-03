@@ -16,12 +16,15 @@ public class FuncoesGlobais : MonoBehaviour
 
             if (imagem == ImagemAtiva)
             {
-                imagem.cor = DefineAlpha(imagem.cor, suave ? Mathf.Lerp(imagem.cor.a))
+                imagem.cor = DefineAlpha(imagem.cor, suave ? Mathf.Lerp(imagem.cor.a, 1f, velocidade) : Mathf.MoveTowards (imagem.color.a, 1f, velocidade));
+                ValorAlterado = true;
             }
             else
             {
-                
-            }
+                imagem.cor = DefineAlpha(imagem.cor, suave ? Mathf.Lerp(imagem.cor.a, 0f, velocidade) : Mathf.MoveTowards (imagem.color.a, 0f, velocidade));
+                ValorAlterado = true;
+            }   
+
         }
 
         return ValorAlterado;
