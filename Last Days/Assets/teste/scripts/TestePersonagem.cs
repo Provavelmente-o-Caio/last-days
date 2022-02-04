@@ -16,6 +16,8 @@ public class TestePersonagem : MonoBehaviour
     int i = 0;
 
     public int IndexCorpo, IndexRosto = 0;
+    public float velocidade = 5f;
+    public bool TransicaoSuave = false;
 
     // Update is called once per frame
     void Update()
@@ -32,8 +34,8 @@ public class TestePersonagem : MonoBehaviour
                 else
                 {
                     DialogueSystem.instance.Fechar();
-                    Abigail.DefineCorpo(IndexCorpo);
-                    Abigail.DefineRosto(IndexRosto);
+                    Abigail.TransicionaCorpo(Abigail.PegaSprite(IndexCorpo), velocidade, TransicaoSuave);
+                    Abigail.TransicionaRosto(Abigail.PegaSprite(IndexRosto), velocidade, TransicaoSuave);
                 }
                 i++;
             }

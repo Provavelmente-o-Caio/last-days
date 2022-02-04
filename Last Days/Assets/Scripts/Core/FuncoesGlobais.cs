@@ -5,33 +5,45 @@ using UnityEngine.UI;
 
 public class FuncoesGlobais : MonoBehaviour
 {
-    public static bool TransicaoImagens(ref Image activeImage, ref List<image> allImages, float velocidade, bool suave)
+    public static bool TransicaoImagens(ref Image ImagemAtiva, ref List<Image> TodasAsImagens, float velocidade, bool suave)
     {
         bool ValorAlterado = false;
 
-        velocida *= Time.deltaTime;
-        for (int i = TodasAsImagens.count - 1; i >= 0; i--)
+        velocidade *= Time.deltaTime;
+        for (int i = TodasAsImagens.Count - 1; i >= 0; i--)
         {
             Image imagem = TodasAsImagens[i];
 
             if (imagem == ImagemAtiva)
             {
-                imagem.cor = DefineAlpha(imagem.cor, suave ? Mathf.Lerp(imagem.cor.a, 1f, velocidade) : Mathf.MoveTowards (imagem.color.a, 1f, velocidade));
-                ValorAlterado = true;
+                if (imagem.color.a < 1f)
+                {
+                    imagem.color = DefineAlpha(imagem.color, suave ? Mathf.Lerp(imagem.color.a, 1f, velocidade) : Mathf.MoveTowards (imagem.color.a, 1f, velocidade));
+                    ValorAlterado = true;
+                }
             }
             else
             {
-                imagem.cor = DefineAlpha(imagem.cor, suave ? Mathf.Lerp(imagem.cor.a, 0f, velocidade) : Mathf.MoveTowards (imagem.color.a, 0f, velocidade));
-                ValorAlterado = true;
-            }   
+                if(imagem.color.a < 1f)
+                {
+                    imagem.color = DefineAlpha(imagem.color, suave ? Mathf.Lerp(imagem.color.a, 0f, velocidade) : Mathf.MoveTowards (imagem.color.a, 0f, velocidade));
+                    ValorAlterado = true;
+                }
+                else
+                {
+                    TodasAsImagens.RemoveAt(i);
+                    DestroyImmediate (imagem.gameObject);
+                    continue;
+                }
+            } 
 
         }
 
         return ValorAlterado;
     }
 
-    public static Color DefineAlpha(Color cor, float alpha)
+    public static Color DefineAlpha(Color color, float alpha)
     {
-        return new Color(cor.r, cor.g, cor.b, alpha);
+        return new Color(color.r, color.g, color.b, alpha);
     }
 }

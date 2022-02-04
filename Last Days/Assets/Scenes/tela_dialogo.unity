@@ -1249,13 +1249,17 @@ MonoBehaviour:
     renderizadores:
       RenderizaCorpo: {fileID: 0}
       RenderizaRosto: {fileID: 0}
+      RenderizaCorpoTodos: []
+      RenderizaRostoTodos: []
   Fala:
   - Ola
   - Tudo bem?
-  - "Que \xF3timo"
-  - Estou bem
+  - Espero que morra
+  - "Estou p\xE9ssima, nada d\xE1 certo"
   IndexCorpo: 0
   IndexRosto: 3
+  velocidade: 5
+  TransicaoSuave: 1
 --- !u!4 &1792010279
 Transform:
   m_ObjectHideFlags: 0

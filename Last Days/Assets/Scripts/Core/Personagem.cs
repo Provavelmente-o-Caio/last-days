@@ -60,7 +60,9 @@ public class Personagem
         renderizadores.RenderizaRosto.sprite = sprite;
     }
 
-    bool CorpoEstaTransicionando {get {TransicaoCorpo != null;}}
+    //Transição de Sprites do corpo
+
+    bool CorpoEstaTransicionando {get {return TransicaoCorpo != null;}}
     Coroutine TransicaoCorpo = null;
 
     public void TransicionaCorpo(Sprite sprite, float velocidade, bool suave)
@@ -76,12 +78,12 @@ public class Personagem
     {
         if(CorpoEstaTransicionando)
             ManagerPersonagem.instance.StopCoroutine(TransicaoCorpo);
-        CorpoEstaTransicionando = null;
+        TransicaoCorpo = null;
     }
 
     public IEnumerator CorpoTransicionando  (Sprite sprite, float velocidade, bool suave)
     {
-        for (int i = 0; i < renderizadores.RenderizaCorpoTodos.count; i++)
+        for (int i = 0; i < renderizadores.RenderizaCorpoTodos.Count; i++)
         {
             Image imagem = renderizadores.RenderizaCorpoTodos[i];
             if (imagem.sprite == sprite)
@@ -90,18 +92,70 @@ public class Personagem
                 break;
             }
         }
+        
         if (renderizadores.RenderizaCorpo.sprite != sprite)
         {
-            Image imagem = gameObject.Instantiate(renderizadores.RenderizaCorpo.gameObject, renderizadores.RenderizaCorpo.transform.parent).GetComponent<Image>();
+            Image imagem = GameObject.Instantiate(renderizadores.RenderizaCorpo.gameObject, renderizadores.RenderizaCorpo.transform.parent).GetComponent<Image>();
             renderizadores.RenderizaCorpoTodos.Add (imagem);
             renderizadores.RenderizaCorpo = imagem;
+            imagem.color = FuncoesGlobais.DefineAlpha(imagem.color, 0f);
+            imagem.sprite = sprite;
         }
 
         while (FuncoesGlobais.TransicaoImagens(ref renderizadores.RenderizaCorpo, ref renderizadores.RenderizaCorpoTodos, velocidade, suave))
             yield return new WaitForEndOfFrame();
 
-            ParaTransicaoCorpo();
+        ParaTransicaoCorpo();
     }
+
+    //Transição de sprites do Rosto
+    bool RostoEstaTransicionando {get {return TransicaoRosto != null;}}
+    Coroutine TransicaoRosto = null;
+
+    public void TransicionaRosto(Sprite sprite, float velocidade, bool suave)
+    {
+        if (renderizadores.RenderizaRosto.sprite == sprite)
+            return;
+     
+        ParaTransicaoRosto();
+        TransicaoRosto = ManagerPersonagem.instance.StartCoroutine(RostoTransicionando(sprite, velocidade, suave));
+    }
+
+    void ParaTransicaoRosto()
+    {
+        if(RostoEstaTransicionando)
+            ManagerPersonagem.instance.StopCoroutine(TransicaoRosto);
+        TransicaoRosto = null;
+    }
+
+    public IEnumerator RostoTransicionando  (Sprite sprite, float velocidade, bool suave)
+    {
+        for (int i = 0; i < renderizadores.RenderizaRostoTodos.Count; i++)
+        {
+            Image imagem = renderizadores.RenderizaRostoTodos[i];
+            if (imagem.sprite == sprite)
+            {
+                renderizadores.RenderizaRosto = imagem;
+                break;
+            }
+        }
+        
+        if (renderizadores.RenderizaRosto.sprite != sprite)
+        {
+            Image imagem = GameObject.Instantiate(renderizadores.RenderizaRosto.gameObject, renderizadores.RenderizaRosto.transform.parent).GetComponent<Image>();
+            renderizadores.RenderizaRostoTodos.Add (imagem);
+            renderizadores.RenderizaRosto = imagem;
+            imagem.color = FuncoesGlobais.DefineAlpha(imagem.color, 0f);
+            imagem.sprite = sprite;
+        }
+
+        while (FuncoesGlobais.TransicaoImagens(ref renderizadores.RenderizaRosto, ref renderizadores.RenderizaRostoTodos, velocidade, suave))
+            yield return new WaitForEndOfFrame();
+
+        ParaTransicaoRosto();
+    }
+
+    
 
     //Carrega/Cria Personagem
     public Personagem (string _nome, bool AtivaAoIniciar = true)
@@ -114,8 +168,8 @@ public class Personagem
         root = ob.GetComponent<RectTransform> ();
         NomePersonagem = _nome;
 
-        renderizadores.RenderizaCorpo = ob.transform.Find("LayerCorpo").GetComponent<Image> ();
-        renderizadores.RenderizaRosto = ob.transform.Find("LayerRosto").GetComponent<Image> ();
+        renderizadores.RenderizaCorpo = ob.transform.Find("LayerCorpo").GetComponentInChildren<Image>();
+        renderizadores.RenderizaRosto = ob.transform.Find("LayerRosto").GetComponentInChildren<Image>();
         renderizadores.RenderizaCorpoTodos.Add(renderizadores.RenderizaCorpo);
         renderizadores.RenderizaRostoTodos.Add(renderizadores.RenderizaRosto);
 
