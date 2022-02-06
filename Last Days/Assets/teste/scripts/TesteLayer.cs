@@ -8,21 +8,27 @@ public class TesteLayer : MonoBehaviour
 
     public Texture tex;
 
+    public float velocidade;
+    public bool suave;
+
     // Start is called before the first frame update
     void Start()
     {
-        ControleBackground.instance;
+        controller = ControleBackground.instance;
     }
 
     // Update is called once per frame
     void Update()
     {
         ControleBackground.Layer layer = null;
-        Touch Toque = Input.GetTouch(0);
-        layer = controller.Background;
-        if (Toque.phase == TouchPhase.Ended)
+        if (Input.touchCount>0)
         {
-            layer.DefineTextura(tex);
+            Touch Toque = Input.GetTouch(0);
+            layer = controller.Background;
+            if (Toque.phase == TouchPhase.Ended)
+            {
+                layer.TransicionaParaTextura(tex, velocidade, suave);
+            }
         }
     }
 }
