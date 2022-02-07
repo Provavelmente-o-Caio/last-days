@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TesteSistemaTexto : MonoBehaviour
 {
-    public Text text;
+    public TextMeshProUGUI tmprotext;
     SistemaTexto ST;
 
     [TextArea(5, 10)]
     public string say;
     public int DPF = 1;
     public float Velocidade = 1f;
-    public bool Encap = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        ST = new SistemaTexto(say);
+        ST = new SistemaTexto(tmprotext, say, "", DPF, Velocidade);
     }
 
     // Update is called once per frame
@@ -28,10 +28,8 @@ public class TesteSistemaTexto : MonoBehaviour
             Touch Toque = Input.GetTouch(0);
             if (Toque.phase == TouchPhase.Ended)
             {
-                ST = new SistemaTexto(say, "", DPF, Velocidade, Encap);
+                ST = new SistemaTexto(tmprotext, say, "", DPF, Velocidade);
             }
         }
-
-        text.text = ST.TextoAtual;
     }
 }

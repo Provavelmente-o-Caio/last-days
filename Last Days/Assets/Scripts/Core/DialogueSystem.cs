@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class DialogueSystem : MonoBehaviour
     {
         ParaDeFalar();
 
-        Falando = StartCoroutine(FalandoNumerador(Fala, false,Falante));
+        Falando = StartCoroutine(FalandoNumerador(Fala, false, Falante));
     }
 
     public void AdicionaFalar(string Fala, string Falante = "")
@@ -49,6 +50,7 @@ public class DialogueSystem : MonoBehaviour
     public string FalaAlvo = "";
     Coroutine Falando = null;
     SistemaTexto SisTexto = null;
+
     IEnumerator FalandoNumerador(string Fala, bool Additive, string Falante = "")
     {
         PainelFalas.SetActive(true);
@@ -56,7 +58,7 @@ public class DialogueSystem : MonoBehaviour
         string FalaAditiva = Additive ? TextoFalas.text : "";
         FalaAlvo = FalaAditiva + Fala;
 
-        SisTexto = new SistemaTexto(Fala, FalaAditiva);
+        SisTexto = new SistemaTexto(TextoFalas, Fala, FalaAditiva);
 
         TextoNome.text = DeterminaFalante(Falante); //gambiarra
 
@@ -65,12 +67,8 @@ public class DialogueSystem : MonoBehaviour
         while (SisTexto.EstaConstruindo)
         {
             //Tenho de depois se possível adicionar função de pular fala
-
-            TextoFalas.text = SisTexto.TextoAtual;
-
              yield return new WaitForEndOfFrame();
         }
-        TextoFalas.text = SisTexto.TextoAtual;
 
         EstaEsperandoUsuarioClicar = true;
         while(EstaEsperandoUsuarioClicar)

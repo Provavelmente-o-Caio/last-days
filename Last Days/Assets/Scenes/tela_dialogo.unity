@@ -1422,7 +1422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792010276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74e6d3c635be96848b6d6f3d104e8b74, type: 3}
   m_Name: 
@@ -1527,7 +1527,7 @@ MonoBehaviour:
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1560,15 +1560,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836232374}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e079c251092eddc4684e94ead162e6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1836232376}
-  say: 
+  say: ryeytetrte
   DPF: 1
-  Velocidade: 15
+  Velocidade: 1
   Encap: 1
 --- !u!1 &2097793767
 GameObject:
