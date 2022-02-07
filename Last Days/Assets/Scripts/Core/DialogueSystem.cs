@@ -14,12 +14,6 @@ public class DialogueSystem : MonoBehaviour
         instance = this;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     public void Falar(string Fala, string Falante = "")
     {
         ParaDeFalar();
@@ -42,6 +36,10 @@ public class DialogueSystem : MonoBehaviour
         {
             StopCoroutine(Falando);
         }
+        if (SisTexto != null && SisTexto.EstaConstruindo)
+        {
+            SisTexto.Parar();
+        }
         Falando = null;
     }
 
@@ -50,25 +48,29 @@ public class DialogueSystem : MonoBehaviour
 
     public string FalaAlvo = "";
     Coroutine Falando = null;
+    SistemaTexto SisTexto = null;
     IEnumerator FalandoNumerador(string Fala, bool Additive, string Falante = "")
     {
         PainelFalas.SetActive(true);
-        FalaAlvo = Fala;
 
-        if (!Additive)
-            TextoFalas.text = "";
-        else
-            FalaAlvo = TextoFalas.text + FalaAlvo;
+        string FalaAditiva = Additive ? TextoFalas.text : "";
+        FalaAlvo = FalaAditiva + Fala;
+
+        SisTexto = new SistemaTexto(Fala, FalaAditiva);
 
         TextoNome.text = DeterminaFalante(Falante); //gambiarra
 
         EstaEsperandoUsuarioClicar = false;
 
-        while (TextoFalas.text != FalaAlvo)
+        while (SisTexto.EstaConstruindo)
         {
-            TextoFalas.text += FalaAlvo[TextoFalas.text.Length];
+            //Tenho de depois se possível adicionar função de pular fala
+
+            TextoFalas.text = SisTexto.TextoAtual;
+
              yield return new WaitForEndOfFrame();
         }
+        TextoFalas.text = SisTexto.TextoAtual;
 
         EstaEsperandoUsuarioClicar = true;
         while(EstaEsperandoUsuarioClicar)

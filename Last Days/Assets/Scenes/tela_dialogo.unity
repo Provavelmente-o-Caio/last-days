@@ -185,7 +185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286086876
 GameObject:
@@ -1213,7 +1213,7 @@ RectTransform:
   - {fileID: 286086877}
   - {fileID: 1268532398}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1232,6 +1232,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e882133f19967f54e87d68e11720813e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Background:
+    root: {fileID: 689133219}
+    NovaImagemRef: {fileID: 1007256368}
+    ImagemAtiva: {fileID: 0}
+    TodasAsImagens: []
+  Foreground:
+    root: {fileID: 1268532397}
+    NovaImagemRef: {fileID: 1782953477}
+    ImagemAtiva: {fileID: 0}
+    TodasAsImagens: []
 --- !u!1 &1764381218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1306,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782953477
 GameObject:
@@ -1412,7 +1422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792010276}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74e6d3c635be96848b6d6f3d104e8b74, type: 3}
   m_Name: 
@@ -1426,7 +1436,7 @@ MonoBehaviour:
       RenderizaCorpoTodos: []
       RenderizaRostoTodos: []
   Fala:
-  - Ola
+  - <b>Ola</b>
   - Tudo bem?
   - Espero que morra
   - "Estou p\xE9ssima, nada d\xE1 certo"
@@ -1455,11 +1465,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792010276}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3190094735a89d34690a5ca4945aa852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tex: {fileID: 2800000, guid: 7db38da392156e74581b09a820427210, type: 3}
+  velocidade: 0.5
+  suave: 0
 --- !u!1 &1836232374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,6 +1484,7 @@ GameObject:
   - component: {fileID: 1836232375}
   - component: {fileID: 1836232377}
   - component: {fileID: 1836232376}
+  - component: {fileID: 1836232378}
   m_Layer: 5
   m_Name: Texto-falas
   m_TagString: Untagged
@@ -1527,7 +1541,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Fala
@@ -1539,6 +1553,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836232374}
   m_CullTransparentMesh: 1
+--- !u!114 &1836232378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836232374}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e079c251092eddc4684e94ead162e6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1836232376}
+  say: 
+  DPF: 1
+  Velocidade: 15
+  Encap: 1
 --- !u!1 &2097793767
 GameObject:
   m_ObjectHideFlags: 0
