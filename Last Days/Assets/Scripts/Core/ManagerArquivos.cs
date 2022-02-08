@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class FileManager : MonoBehaviour 
+public class ManagerArquivos : MonoBehaviour 
 {
 	/// <summary>
 	/// The root save path for ALL data

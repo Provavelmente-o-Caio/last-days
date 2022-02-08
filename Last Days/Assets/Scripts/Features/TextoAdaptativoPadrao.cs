@@ -39,7 +39,6 @@ public class TextoAdaptativoPadrao : MonoBehaviour
         float perc = totalCurrentRes / defaultResolution;
         int fontsize = Mathf.RoundToInt ((float)fontSizeAtDefaultResolution * perc);
 
-        Debug.Log(fontsize);
         txt.fontSize = fontsize;
     }
 }

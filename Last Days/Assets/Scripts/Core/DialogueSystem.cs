@@ -15,20 +15,15 @@ public class DialogueSystem : MonoBehaviour
         instance = this;
     }
 
-    public void Falar(string Fala, string Falante = "")
+    public void Falar(string Fala, string Falante = "", bool FalaAditiva = false)
     {
         ParaDeFalar();
 
-        Falando = StartCoroutine(FalandoNumerador(Fala, false, Falante));
-    }
-
-    public void AdicionaFalar(string Fala, string Falante = "")
-    {
-        ParaDeFalar();
-
-        TextoFalas.text = FalaAlvo;
-
-        Falando = StartCoroutine(FalandoNumerador(Fala, true, Falante));
+        if (FalaAditiva)
+        {
+            TextoFalas.text = FalaAlvo;
+        }
+        Falando = StartCoroutine(FalandoNumerador(Fala, FalaAditiva, Falante));
     }
 
     public void ParaDeFalar()

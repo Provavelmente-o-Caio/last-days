@@ -1,0 +1,23 @@
+DefineBackground(Biblioteca, 2, false)
+
+Dandara "Vamos, é sexta, precisamos nos divertir" DefineRosto(2, 2f, false)
+
+Abigail "Preciso voltar para casa, você sabe... Meus pais já não gostam que eu trabalha no sábado, eles nunca vão deixar eu só sair por aí"
+
+Dandara "Ninguém precisa saber que você está saindo... Só eu e você"
+
+Abigail "Você vai sair com seus amigos... Como seria só eu e você?"
+
+Dandara "Só nós duas saberíamos que você não tem permissão para sair"
+
+Abigail "Você é péssima... e se meus pais descobrirem?"
+
+Dandara "Não vamos tirar fotos e vamos ficar só nas áreas desertas"
+
+Abigail "Mesmo?"
+
+Dandara "Eu prometo"
+
+Abigail "Vou ligar para meus pai e dizer que o ~dono da livraria~ precisa de ajuda essa tarde" DefineRosto(2, 2f, false) 
+
+Dandara "Isso!, isso!, isso!"

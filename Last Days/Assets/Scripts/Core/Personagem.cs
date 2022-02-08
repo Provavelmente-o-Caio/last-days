@@ -22,14 +22,7 @@ public class Personagem
             Ativado = true;
         }
 
-        if(!add)
-        {
-            Dialogo.Falar(Fala, NomePersonagem);
-        }
-        else
-        {
-            Dialogo.AdicionaFalar(Fala, NomePersonagem);
-        }
+        Dialogo.Falar(Fala, NomePersonagem, add);
     }
 
     //Transição de sprites

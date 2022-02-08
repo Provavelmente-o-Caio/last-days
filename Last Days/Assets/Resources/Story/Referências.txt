@@ -1,0 +1,15 @@
+Listinha de coisas para referência :D
+
+Incluir fala:
+    Colocar o nome do personagem e a fala entre aspas, exemplo: Abigail "Olá Mundo".
+
+
+Trocar de fundo
+    DefineBackground(Texture texture, float velocidade = 2f, bool suave = false);
+
+Trocar de Foreground
+    DefineForeground
+
+Mudar expressão do personagem
+    DefineRosto(Sprite sprite, float velocidade, bool suave);
+    -> Atualmene não é possível alterar a pose visto que não há sprites secundários, porém existe o código para isso.
