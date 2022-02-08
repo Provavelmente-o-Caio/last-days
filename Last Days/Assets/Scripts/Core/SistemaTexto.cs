@@ -71,15 +71,15 @@ public class SistemaTexto
 
             while(DNF < DPF)
             {
-                vis++;
+                vis ++;
                 tmpro.maxVisibleCharacters = vis;
                 DNF++;
             }
 
             DNF = 0;
             yield return new WaitForSeconds(0.01f * Velocidade);
-            Terminar();
         }
+        Terminar();
     }
 
     void Iniciar()

@@ -64,11 +64,11 @@ public class DialogueSystem : MonoBehaviour
 
         EstaEsperandoUsuarioClicar = false;
 
-        while (SisTexto.EstaConstruindo)
-        {
-            //Tenho de depois se possível adicionar função de pular fala
-             yield return new WaitForEndOfFrame();
-        }
+        //while (SisTexto.EstaConstruindo)
+        //{
+        //    //Tenho de depois se possível adicionar função de pular fala
+        //     yield return new WaitForEndOfFrame();
+        //}
 
         EstaEsperandoUsuarioClicar = true;
         while(EstaEsperandoUsuarioClicar)
@@ -97,10 +97,10 @@ public class DialogueSystem : MonoBehaviour
     {
         /// O painel que controlará todos os elementos de dialogo da UI
         public GameObject PainelFalas;
-        public Text TextoNome;
-        public Text TextoFalas;
+        public TextMeshProUGUI TextoNome;
+        public TextMeshProUGUI TextoFalas;
     }
         public GameObject PainelFalas {get{return elements.PainelFalas;}}
-        public Text TextoNome {get{return elements.TextoNome;}}
-        public Text TextoFalas {get{return elements.TextoFalas;}}
+        public TextMeshProUGUI TextoNome {get{return elements.TextoNome;}}
+        public TextMeshProUGUI TextoFalas {get{return elements.TextoFalas;}}
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class TextoAdaptativo : MonoBehaviour
+public class TextoAdaptativoPadrao : MonoBehaviour
 {
-    TextMeshProUGUI txt;
+    Text txt;
     public bool UpdateContinuo = true;
 
     public int fontSizeAtDefaultResolution = 48;
@@ -15,7 +15,7 @@ public class TextoAdaptativo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        txt = GetComponent<TextMeshProUGUI>();
+        txt = GetComponent<Text>();
 
         if (UpdateContinuo)
         {
