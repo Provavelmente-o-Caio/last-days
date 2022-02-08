@@ -1,6 +1,6 @@
 DefineBackground(Biblioteca, 2, false)
 
-Dandara "Vamos, é sexta, precisamos nos divertir" DefineRosto(2, 2f, false)
+Dandara "Vamos, é sexta, precisamos nos divertir" DefineRosto(Dandara, Rosto, feliz)
 
 Abigail "Preciso voltar para casa, você sabe... Meus pais já não gostam que eu trabalha no sábado, eles nunca vão deixar eu só sair por aí"
 
@@ -18,6 +18,8 @@ Abigail "Mesmo?"
 
 Dandara "Eu prometo"
 
-Abigail "Vou ligar para meus pai e dizer que o ~dono da livraria~ precisa de ajuda essa tarde" DefineRosto(2, 2f, false) 
+Abigail "Vou ligar para meus pai e dizer que o ~dono da livraria~ precisa de ajuda essa tarde" DefineRosto(Abigail, Rosto, feliz) 
 
 Dandara "Isso!, isso!, isso!"
+
+DefineBackground(parque)

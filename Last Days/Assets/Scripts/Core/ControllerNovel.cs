@@ -95,13 +95,19 @@ public class ControllerNovel : MonoBehaviour
             comandoDefineLayerImagem(data[1], ControleBackground.instance.Foreground);
             return;
         }
+
+        if(data[0] == "DefineRosto")
+        {
+            comandoDefineRosto(data[1]);
+            return;
+        }
     }
 
     void comandoDefineLayerImagem(string data, ControleBackground.Layer layer)
     {
         string NomeTextura = data.Contains(",") ? data.Split(',')[0] : data;
         Debug.Log(NomeTextura);
-        Texture2D tex = Resources.Load("Images/backgrounds/" + NomeTextura) as Texture2D;
+        Texture2D tex = NomeTextura == "null" ? null : Resources.Load("Images/backgrounds/" + NomeTextura) as Texture2D;
         float velocidade = 2f;
         bool suave = false;
 
@@ -123,5 +129,20 @@ public class ControllerNovel : MonoBehaviour
             }
         }
         layer.TransicionaParaTextura(tex, velocidade, suave);
+    }
+
+    void comandoDefineRosto(string data)
+    {
+        string[] parametros = data.Split(',');
+        string personagem = parametros[0];
+        string posicao = parametros[1];
+        string expressao = parametros[2];
+        Debug.Log(expressao);
+        float velocidade = parametros.Length == 4 ? float.Parse(parametros[3]) : 1f;
+
+        Personagem p = ManagerPersonagem.instance.PegaPersonagem(personagem);
+        Sprite sprite = p.PegaSprite(expressao);
+        
+        p.TransicionaRosto(sprite, velocidade, false);
     }
 }

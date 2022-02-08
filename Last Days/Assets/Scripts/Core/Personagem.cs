@@ -33,6 +33,19 @@ public class Personagem
         return Sprites[index];
     }
 
+    public Sprite PegaSprite(string NomeSprite = "")
+    {
+        Sprite[] Sprites = Resources.LoadAll<Sprite> ("Images/personagens/" + NomePersonagem);
+        for (int i = 0; i < Sprites.Length; i++)
+        {
+            if (Sprites[i].name == NomeSprite)
+            {
+                return Sprites[1];
+            }
+        }
+        return Sprites.Length > 0 ? Sprites[0] : null;
+    }
+
     public void DefineCorpo(int index)
     {
         renderizadores.RenderizaCorpo.sprite = PegaSprite (index); 
@@ -43,6 +56,11 @@ public class Personagem
         renderizadores.RenderizaCorpo.sprite = sprite;
     }
 
+    public void DefineCorpo(string NomeSprite)
+    {
+        renderizadores.RenderizaCorpo.sprite = PegaSprite(NomeSprite);
+    }
+
     public void DefineRosto(int index)
     {
         renderizadores.RenderizaRosto.sprite = PegaSprite (index);
@@ -51,6 +69,11 @@ public class Personagem
     public void DefineRosto(Sprite sprite)
     {
         renderizadores.RenderizaRosto.sprite = sprite;
+    }
+
+    public void DefineRosto(string NomeSprite)
+    {
+        renderizadores.RenderizaRosto.sprite = PegaSprite(NomeSprite);
     }
 
     //Transição de Sprites do corpo
