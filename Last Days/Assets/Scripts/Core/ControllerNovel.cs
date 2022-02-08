@@ -142,6 +142,7 @@ public class ControllerNovel : MonoBehaviour
 
         Personagem p = ManagerPersonagem.instance.PegaPersonagem(personagem);
         Sprite sprite = p.PegaSprite(expressao);
+        Debug.Log(expressao);
         
         p.TransicionaRosto(sprite, velocidade, false);
     }
